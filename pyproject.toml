@@ -1,0 +1,21 @@
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.ruff]
+target-version = "py39"
+
+ignore = ["E501"]
+
+# Maximum allowed line length (optional)
+line-length = 100
+
+fix = true
+
+select = ["E", "F", "W", "I", "F401", "F821"]
+
+exclude = ["build", "dist"]

@@ -1,0 +1,25 @@
+# test results
+test-results
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+
+# Vim
+*.swp
+
+# Vscode
+.vscode/
+
+# Weights & Biases
+wandb/
+
+# MacOS
+.DS_Store
+
+.ruff_cache/
