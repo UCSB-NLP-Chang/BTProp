@@ -156,7 +156,12 @@ class HMMTreeNode:
             print_tree(self, print_obj="upward")
 
     def add_node_via_statement(
-        self, parent_statement: str, child_statement: str, conf: float, nli_rel: str,
+        self,
+        parent_statement: str,
+        child_statement: str,
+        conf: float,
+        nli_rel: str,
+        general_rel: str,
     ):
         """
         Given a parent node and a child node, search in the belief tree and mount the child node
@@ -167,6 +172,7 @@ class HMMTreeNode:
             child_statement: the statement on the child node.
             conf: the confidence score on the child node.
             nli_rel: the NLI relation between the parent node and the child node.
+            general_rel: the premise generation method for that child node.
 
         Returns:
             layer_index: the layer index of the child node. -1 means the parent node
@@ -184,11 +190,12 @@ class HMMTreeNode:
             )
             self.child_nodes.append(newnode)
             self.nli_relations.append(nli_rel)
+            self.general_relations.append(general_rel)
             return newnode.layer
         else:
             for childnode in self.child_nodes:
                 insert_layer = childnode.add_node_via_statement(
-                    parent_statement, child_statement, conf, nli_rel
+                    parent_statement, child_statement, conf, nli_rel, general_rel
                 )
                 if insert_layer > 0:
                     return insert_layer

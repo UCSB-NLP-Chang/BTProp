@@ -11,7 +11,10 @@ class CrossEncoderNLI:
     """
 
     def __init__(self, device="cuda") -> None:
-        self.model = CrossEncoder("cross-encoder/nli-deberta-v3-large", device=torch.device(device))
+        self.model = CrossEncoder(
+            "cross-encoder/nli-deberta-v3-large",
+            device=torch.device(device)
+        )
 
     @torch.no_grad()
     def _batch_pred(self, input_list):

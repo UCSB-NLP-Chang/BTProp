@@ -1,3 +1,6 @@
+"""
+python confidence_estimation.py --dataset=wikibio --backbone=chatgpt
+"""
 import json
 import os
 
@@ -29,11 +32,6 @@ def set_eval_args():
         ["chatgpt", "llama",],
         help="The name of the model that used to generate belief trees.",
     )
-    # flags.DEFINE_boolean(
-    #     "use_cache",
-    #     True,
-    #     help="Whether cache the LLM queries and responses."
-    # )
 
 
 def load_all_statment(statement_to_prem):

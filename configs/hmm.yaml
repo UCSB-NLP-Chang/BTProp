@@ -1,0 +1,9 @@
+HMM_init_distribution_true: 0.5
+HMM_init_distribution_false: 0.5
+
+bins_sep: [0.19, 0.39, 0.69, 0.89,]
+emission_probs_true: [0.11904761904761904, 0.051587301587301584, 0.0992063492063492, 0.08333333333333333, 0.6468253968253969]
+emission_probs_false: [0.29714285714285715, 0.09571428571428571, 0.15571428571428572, 0.13428571428571429, 0.3171428571428571]
+
+perturb_emission_probs_true: [0.1, 0.1, 0.1, 0.1, 0.8]
+perturb_emission_probs_false: [0.1, 0.1, 0.1, 0.1, 0.2]

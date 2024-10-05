@@ -33,7 +33,7 @@ def set_eval_args():
     )
 
 
-def main():
+def main(argv):
     if FLAGS.dataset == "felm":
         data_list = load_felm_science_processed_human()
     elif FLAGS.dataset == "wikibio":
@@ -64,7 +64,7 @@ def main():
                     label_dict[segments[idx]] = 0
 
     statement_to_conf = {}
-    conf_path = f"logs/conf_estimation/{FLAGS.dataset}_{FLAGS.tree_type}_{FLAGS.backbone}.json"
+    conf_path = f"logs/conf_estimation/{FLAGS.dataset}_{FLAGS.backbone}.json"
     with open(conf_path, "r", encoding="utf-8") as f:
         conf_logs = json.load(f)
     for conf_dict in conf_logs:
@@ -73,7 +73,7 @@ def main():
         statement_to_conf[statement] = conf
 
     with open(
-        f"logs/belief_trees/{FLAGS.dataset}_{FLAGS.tree_type}_{FLAGS.backbone}_w_label.json",
+        f"logs/belief_trees/{FLAGS.dataset}_{FLAGS.backbone}.json",
         "r",
         encoding="utf-8",
     ) as f:
@@ -89,7 +89,7 @@ def main():
         tgt_statement = curr_sent
 
         if curr_sent not in statement_to_conf:
-            raise NotImplementedError
+            orig_conf = 0.5
         else:
             orig_conf = statement_to_conf[curr_sent]
         if curr_sent not in prem_dict:

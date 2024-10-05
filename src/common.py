@@ -21,7 +21,7 @@ def chatgpt_query(**kwargs):
 def llama_query(**kwargs):
     with openai.Client(api_key="EMPTY", base_url="http://localhost:10000/v1/") as client:
         res = client.chat.completions.create(
-            model="/home/bairu/data/repos/vllm_service/llama_saved", **kwargs,
+            model="/path/to/vllm_llama", **kwargs,
         )
     return res
 

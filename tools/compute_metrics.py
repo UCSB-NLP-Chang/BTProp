@@ -150,4 +150,5 @@ def main(argv):
 
 
 if __name__ == "__main__":
+    set_eval_args()
     app.run(main)

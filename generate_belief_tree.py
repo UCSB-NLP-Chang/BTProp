@@ -1,7 +1,10 @@
+"""
+python generate_belief_tree.py --dataset=wikibio --backbone=chatgpt
+"""
 import json
 import os
 
-from absl import flags
+from absl import app, flags
 from tqdm.auto import tqdm as auto_tqdm
 
 from src.data_utils import (
@@ -30,8 +33,7 @@ def set_eval_args():
     flags.DEFINE_integer("max_layers", 2, help="The maximum number of layers of the belief tree.")
 
 
-if __name__ == "__main__":
-    prem_layer_dict = {}
+def main(argv):
     if FLAGS.dataset == "felm":
         data_list = load_felm_science_processed_human()
     elif FLAGS.dataset == "wikibio":
@@ -82,3 +84,8 @@ if __name__ == "__main__":
 
     with open(savename, "w", encoding="utf-8") as f:
         json.dump(premise_gen_logs, f, indent=4)
+
+
+if __name__ == "__main__":
+    set_eval_args()
+    app.run(main=main)
