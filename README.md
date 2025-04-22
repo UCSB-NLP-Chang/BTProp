@@ -1,5 +1,5 @@
 ## Hallucination Detection with Belief Tree Propagation
-This is the official implementation for the paper, "A Probabilistic Framework for LLM Hallucination Detection via Belief Tree Propagation".
+This is the official implementation for the NAACL-2025 (main) paper, "A Probabilistic Framework for LLM Hallucination Detection via Belief Tree Propagation".
 
 ### Requirements
 
